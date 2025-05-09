@@ -1,0 +1,66 @@
+r local gui = Instance.new("ScreenGui", game.Players.LocalPlayer:WaitForChild("PlayerGui"))
+gui.Name = "GGS HUB"
+
+-- Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 400, 0, 250)
+mainFrame.Position = UDim2.new(0.5, -200, 1, 0) -- start dưới màn hình
+mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 30)
+mainFrame.BackgroundTransparency = 0.1
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = gui
+
+local corner = Instance.new("UICorner", mainFrame)
+corner.CornerRadius = UDim.new(0, 20)
+
+local stroke = Instance.new("UIStroke", mainFrame)
+stroke.Color = Color3.fromRGB(0, 255, 255)
+stroke.Thickness = 2
+stroke.Transparency = 0.2
+
+-- Title
+local title = Instance.new("TextLabel", mainFrame)
+title.Size = UDim2.new(1, 0, 0, 50)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Text = "💠 BRO HUB 💠"
+title.Font = Enum.Font.GothamBold
+title.TextColor3 = Color3.fromRGB(255, 105, 180)
+title.BackgroundTransparency = 1
+title.TextScaled = true
+
+-- Icon tròn trên đầu
+local icon = Instance.new("ImageLabel", mainFrame)
+icon.Size = UDim2.new(0, 60, 0, 60)
+icon.Position = UDim2.new(0.5, -30, 0, -30)
+icon.Image = "rbxassetid://87829556167254" -- 🧠 THAY BẰNG ID ĐÚNG
+icon.BackgroundTransparency = 1
+
+local iconCorner = Instance.new("UICorner", icon)
+iconCorner.CornerRadius = UDim.new(1, 0)
+
+-- Button
+local button = Instance.new("TextButton", mainFrame)
+button.Size = UDim2.new(0, 200, 0, 50)
+button.Position = UDim2.new(0.5, -100, 1, -60)
+button.Text = "💥 BẤM VÀO ĐÂY 💥"
+button.Font = Enum.Font.FredokaOne
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.BackgroundColor3 = Color3.fromRGB(50, 0, 90)
+
+local btnCorner = Instance.new("UICorner", button)
+btnCorner.CornerRadius = UDim.new(0, 15)
+
+local btnStroke = Instance.new("UIStroke", button)
+btnStroke.Color = Color3.fromRGB(255, 20, 147)
+
+-- Sự kiện khi bấm
+button.MouseButton1Click:Connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "💎 BRO HUB",
+		Text = "GUI XỊN ĐÉT VỪA ĐƯỢC BẤM😎",
+		Duration = 3
+	})
+end)
+
+-- Animation xuất hiện
+mainFrame:TweenPosition(UDim2.new(0.5, -200, 0.5, -125), "Out", "Quad", 0.5)
